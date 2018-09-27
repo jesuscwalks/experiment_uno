@@ -15,7 +15,7 @@ function setup() {
 
 function draw() {
 //draw audio reactive balls in a pattern
-  background(220);
+  background(220,5);
   counter = counter;
 
   noStroke();
