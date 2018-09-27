@@ -53,17 +53,17 @@ function ballRotate() {
   var vol = mic.getLevel();
   var micSize = vol*100;
   rotate(counter);
-  drawBall(0,15+(micSize*5),30+(micSize*7),7);
+  drawBall(0,15+(micSize*5),30+(micSize*7),10);
   rotate(+89);
-  drawBall(0,15+(micSize*5),30+(micSize*7),7);
+  drawBall(0,15+(micSize*5),30+(micSize*7),10);
   rotate(+89);
-  drawBall(0,15+(micSize*5),30+(micSize*7),7);
+  drawBall(0,15+(micSize*5),30+(micSize*7),10);
   rotate(+89);
-  drawBall(0,15+(micSize*5),30+(micSize*7),7);
+  drawBall(0,15+(micSize*5),30+(micSize*7),10);
   rotate(+89);
-  drawBall(0,15+(micSize*5),30+(micSize*7),7);
+  drawBall(0,15+(micSize*5),30+(micSize*7),10);
   rotate(+89);
-  drawBall(0,15+(micSize*5),30+(micSize*7),7);
+  drawBall(0,15+(micSize*5),30+(micSize*7),10);
 }
 
 function drawBall(xloc, yloc, size, num){
