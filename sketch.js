@@ -1,3 +1,7 @@
+//Hello Welcome to my Assignment for Experiment 1
+//The glowing balls will react to sound 
+//and rotate around the mouse
+
 var mic;
 var counter = 0;
 
@@ -11,37 +15,41 @@ function setup() {
 function draw() {
   background(255);
   counter = counter + 0.01;
-  var vol = mic.getLevel();
 
   noStroke();
-  boomBall();
+  translate(mouseX,mouseY);//balls will rotate around mouse
+  ballRotate();
   console.log(counter);
+  
 }
 
-
-function boomBall(size) {
+function ballRotate() {  
+//creates group of balls
   var vol = mic.getLevel();
-  var micSize = vol*1000;
-  
-  noStroke(0);
-  
-  push();
-    translate(width/2, height/2);
-    fill(10*micSize+22, 50*micSize, 5*micSize);
-    ellipse(0,0, 200+micSize);
-  pop();
-  
-  push();
-    translate(width/2, height/2);
-    fill(10*micSize, 100+micSize, 5*micSize);
-    ellipse(0,0, 130+micSize);
-  pop();
-  
-  push();
-    translate(width/2, height/2);
-    fill(10*micSize, 200-micSize, 5*micSize);
-    ellipse(0,0, 50+micSize);
-  pop();
-  
-  console.log(micSize);
+  var micSize = vol*100;
+  rotate(counter);
+  drawBall(0,25,30,8);
+  rotate(+89);
+  drawBall(0,25,30,8);
+  rotate(+89);
+  drawBall(0,25,30,8);
+  rotate(+89);
+  drawBall(0,25,30,8);
+  rotate(+89);
+  drawBall(0,25,30,8);
+  rotate(+89);
+  drawBall(0,25,30,8);
+}
+
+function drawBall(xloc, yloc, size, num){ 
+//create singular ball
+//code built off p5js drawTarget function
+  var vol = mic.getLevel();
+  var micSize = vol*500; 
+  var grayvalues = 255/num;
+  var steps = size/num;
+  for (var i = 0; i < num; i++) {
+    fill(i*micSize*10, i*grayvalues+25, micSize*grayvalues);
+    ellipse(xloc, yloc, size - i*steps, size - i*steps);
+  }
 }
