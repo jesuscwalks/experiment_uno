@@ -1,7 +1,3 @@
-//Hello Welcome to my Assignment for Experiment 1
-//The glowing balls will react to sound 
-//and rotate around the mouse
-
 var mic;
 var counter = 0;
 
@@ -13,37 +9,37 @@ function setup() {
 }
 
 function draw() {
-  background(255);
-  counter = counter + 0.01;
+  background(220);
+  counter = counter;
 
   noStroke();
-  translate(mouseX,mouseY);//balls will rotate around mouse
+  translate(width/2, height/2); //centre objects
   ballRotate();
   console.log(counter);
   
 }
 
 function ballRotate() {  
-//creates group of balls
+//creates 6 audio reactive balls
   var vol = mic.getLevel();
   var micSize = vol*100;
   rotate(counter);
-  drawBall(0,25,30,8);
+  drawBall(0,15+(micSize*5),30+(micSize*7),7);
   rotate(+89);
-  drawBall(0,25,30,8);
+  drawBall(0,15+(micSize*5),30+(micSize*7),7);
   rotate(+89);
-  drawBall(0,25,30,8);
+  drawBall(0,15+(micSize*5),30+(micSize*7),7);
   rotate(+89);
-  drawBall(0,25,30,8);
+  drawBall(0,15+(micSize*5),30+(micSize*7),7);
   rotate(+89);
-  drawBall(0,25,30,8);
+  drawBall(0,15+(micSize*5),30+(micSize*7),7);
   rotate(+89);
-  drawBall(0,25,30,8);
+  drawBall(0,15+(micSize*5),30+(micSize*7),7);
 }
 
-function drawBall(xloc, yloc, size, num){ 
+function drawBall(xloc, yloc, size, num){
 //create singular ball
-//code built off p5js drawTarget function
+//code based off p5js drawTarget example
   var vol = mic.getLevel();
   var micSize = vol*500; 
   var grayvalues = 255/num;
