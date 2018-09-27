@@ -1,3 +1,8 @@
+//Hello
+//Welcome to Atelier Experiment One by Rosh Leynes
+//The program will initialize your microphone
+//and the balls on screen will be affected by outisde noise
+
 var mic;
 var counter = 0;
 
@@ -9,18 +14,42 @@ function setup() {
 }
 
 function draw() {
+//draw audio reactive balls in a pattern
   background(220);
   counter = counter;
 
   noStroke();
-  translate(width/2, height/2); //centre objects
-  ballRotate();
-  console.log(counter);
   
+  translate(100,100);
+  push();
+    ballRotate();
+  pop();
+  
+  translate(200,0)
+  push();
+    ballRotate();
+  pop();
+  
+  translate(0,200);
+  push();
+    ballRotate();
+  pop();
+  
+  translate(-200,0);
+  push();
+    ballRotate();
+  pop();
+  
+  translate(100,-100);
+  push();
+    ballRotate();
+  pop();
+  
+  console.log(counter);
 }
 
 function ballRotate() {  
-//creates 6 audio reactive balls
+//creates group of audio reactive balls
   var vol = mic.getLevel();
   var micSize = vol*100;
   rotate(counter);
@@ -38,8 +67,8 @@ function ballRotate() {
 }
 
 function drawBall(xloc, yloc, size, num){
-//create singular ball
-//code based off p5js drawTarget example
+//create singular audio reactive ball
+//code example based on p5js drawTarget example
   var vol = mic.getLevel();
   var micSize = vol*500; 
   var grayvalues = 255/num;
